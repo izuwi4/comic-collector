@@ -1,5 +1,5 @@
 //this is a working schema for the digital relationships of the database
-
+//it is meant to be used with dbdiagram.io
 Table artist {
   id int [primary key]
   name string
@@ -17,15 +17,25 @@ Table comic {
 Table comic_page{
   id int [primary key]
   parent_comic_id int [not null]
-  img image
+  img varchar //path to the image
   page int
 }
 
-Table gallery {
+Table gallery_image {
   id int [primary key]
-  img image
-  tag varchar
+  artist_id int [not null]
+  img varchar 
+  tag int
   
+}
+Table comic_tags{
+  id int [primary key]
+  applied_tags int [not null]
+}
+
+Table image_tags{
+  id int [primary key]
+  applied_tags int [not null]
 }
 
 Table tag {
@@ -33,12 +43,16 @@ Table tag {
   name varchar [not null]
 }
 
-Ref: comic.artist_id > artist.id
+Ref: comic.artist_id ?> artist.id
 
-Ref: gallery.id - artist.id
+Ref: gallery_image.artist_id ?<> artist.id
 
 Ref: comic_page.parent_comic_id > comic.id
 
-Ref: tag.name ?<> gallery.tag
+Ref: comic_tags.applied_tags <> tag.id
 
-Ref: tag.name ?<> comic.tag
+Ref: comic_tags.id - comic.tag
+
+Ref: image_tags.applied_tags <> tag.id
+
+Ref: image_tags.id - gallery_image.tag
