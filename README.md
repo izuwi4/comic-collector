@@ -1,5 +1,5 @@
 # Comic-Collector
-This is a project for a collection of comic books and artist galleries with a html/css/js front-end and SQL/Python back end. This is a full stack project involving me creating both a front-end site to display all the images in an organized and concise manner.
+This is a project for a collection of comic books and artist galleries with a html/css/js front-end and SQL/Python back end. This is a full stack project involving me creating both a front-end site to display all the images and comics in an organized and concise manner and a back end to deal with managing the images and importing from various sources.
 
 ## Disclaimer
 This is a project I am making in my early career as a programmer, thus there will likely be glaring oversights. Documentation on how to implement this project will be created once a working model has been finished. If you choose to implement this I advise caution additionally i, of course, would appreciate constructive criticism.
